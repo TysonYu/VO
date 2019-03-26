@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/icey/Desktop/project/VO/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -123,6 +123,19 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+#=============================================================================
+# Target rules for targets named VO
+
+# Build rule for target.
+VO: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 VO
+.PHONY : VO
+
+# fast build rule for target.
+VO/fast:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/build
+.PHONY : VO/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,18 +163,49 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/data_loader.o: src/data_loader.cpp.o
+
+.PHONY : src/data_loader.o
+
+# target to build an object file
+src/data_loader.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/data_loader.cpp.o
+.PHONY : src/data_loader.cpp.o
+
+src/data_loader.i: src/data_loader.cpp.i
+
+.PHONY : src/data_loader.i
+
+# target to preprocess a source file
+src/data_loader.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/data_loader.cpp.i
+.PHONY : src/data_loader.cpp.i
+
+src/data_loader.s: src/data_loader.cpp.s
+
+.PHONY : src/data_loader.s
+
+# target to generate assembly for a file
+src/data_loader.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/data_loader.cpp.s
+.PHONY : src/data_loader.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... rebuild_cache"
+	@echo "... VO"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/data_loader.o"
+	@echo "... src/data_loader.i"
+	@echo "... src/data_loader.s"
 .PHONY : help
 
 

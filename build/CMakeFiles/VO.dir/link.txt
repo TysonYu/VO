@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libVO.a  CMakeFiles/VO.dir/src/data_loader.cpp.o
+/usr/bin/ranlib ../lib/libVO.a

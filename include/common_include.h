@@ -20,6 +20,7 @@ using Sophus::SE3;
 
 // for cv
 #include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
 using cv::Mat;
 
 // std 
@@ -31,6 +32,8 @@ using cv::Mat;
 #include <set>
 #include <unordered_map>
 #include <map>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 #endif  //COMMON_INCLUDE_H

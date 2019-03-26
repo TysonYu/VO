@@ -588,6 +588,9 @@ Sophus_DIR:PATH=/home/icey/thirdpart/slambook/3rdparty/Sophus/build
 //Value Computed by CMake
 VO_BINARY_DIR:STATIC=/home/icey/Desktop/project/VO/build
 
+//Dependencies for target
+VO_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 VO_SOURCE_DIR:STATIC=/home/icey/Desktop/project/VO
 

@@ -44,9 +44,7 @@ sstream
 common_include.h
 -
 
-/home/icey/Desktop/project/VO/main.cpp
-common_include.h
--
+/home/icey/Desktop/project/VO/src/data_loader.cpp
 data_loader.h
 -
 

@@ -9,13 +9,17 @@ camera.fx: 458.654
 camera.fy: 457.296
 camera.cx: 367.215
 camera.cy: 248.375
-distortion_coefficients: [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05]
+distortion_coefficients1: -0.28340811
+distortion_coefficients2: 0.07395907
+distortion_coefficients3: 0.00019359
+distortion_coefficients4: 1.76187114e-05
 
-# fr2
-#camera.fx: 520.9
-#camera.fy: 521.0
-#camera.cx: 325.1
-#camera.cy: 249.7
+init_R: [-0.3222673184062916, -0.9460652815132602, 0.03323038673343787,
+        -0.3890522682177243, 0.1003616669290551, -0.9157324218383149,
+        0.8630075944520199, -0.308038989295929, -0.4004121289267856]
+init_t: [2.346026439949247,
+        1.422413274927863,
+        0.5653941661421517]
 
 camera.depth_scale: 5000
 
