@@ -27,8 +27,8 @@ add_definitions(${PCL_DEFINITIONS})
 
 add_library(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/src/data_loader.cpp
-        # ${PROJECT_SOURCE_DIR}/src/KeyPointsMaker.cpp
-        # ${PROJECT_SOURCE_DIR}/src/PNPSolver.cpp
+        ${PROJECT_SOURCE_DIR}/src/config.cpp
+        ${PROJECT_SOURCE_DIR}/src/camera.cpp
 	# ${PROJECT_SOURCE_DIR}/src/LoopDetector.cpp
 
 )
@@ -38,7 +38,7 @@ target_link_libraries(main
         ${PROJECT_NAME}
         # ${PCL_LIBRARIES}
         ${OpenCV_LIBS}
-        # ${Sophus_LIBRARIES}
+        ${Sophus_LIBRARIES}
         # g2o_core g2o_stuff g2o_types_sba
 	# ${DBoW3_LIBS}
 )

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/camera.h
+common_include.h
+../include/common_include.h
+
 ../include/common_include.h
 Eigen/Core
 -
@@ -40,6 +44,10 @@ fstream
 sstream
 -
 
+../include/config.h
+common_include.h
+../include/common_include.h
+
 ../include/data_loader.h
 common_include.h
 -
@@ -47,7 +55,11 @@ common_include.h
 /home/icey/Desktop/project/VO/main.cpp
 common_include.h
 -
+config.h
+-
 data_loader.h
+-
+camera.h
 -
 
 /home/icey/thirdpart/slambook/3rdparty/Sophus/sophus/se3.h
@@ -487,8 +499,6 @@ kdtree_index.h
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/flann/kdtree_index.h
 kmeans_index.h
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/flann/kmeans_index.h
-
-/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/flann/config.h
 
 /opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/flann/defines.h
 config.h

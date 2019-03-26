@@ -81,17 +81,69 @@ CMakeFiles/VO.dir/src/data_loader.cpp.o.provides: CMakeFiles/VO.dir/src/data_loa
 CMakeFiles/VO.dir/src/data_loader.cpp.o.provides.build: CMakeFiles/VO.dir/src/data_loader.cpp.o
 
 
+CMakeFiles/VO.dir/src/config.cpp.o: CMakeFiles/VO.dir/flags.make
+CMakeFiles/VO.dir/src/config.cpp.o: ../src/config.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/VO.dir/src/config.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VO.dir/src/config.cpp.o -c /home/icey/Desktop/project/VO/src/config.cpp
+
+CMakeFiles/VO.dir/src/config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VO.dir/src/config.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/icey/Desktop/project/VO/src/config.cpp > CMakeFiles/VO.dir/src/config.cpp.i
+
+CMakeFiles/VO.dir/src/config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VO.dir/src/config.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/icey/Desktop/project/VO/src/config.cpp -o CMakeFiles/VO.dir/src/config.cpp.s
+
+CMakeFiles/VO.dir/src/config.cpp.o.requires:
+
+.PHONY : CMakeFiles/VO.dir/src/config.cpp.o.requires
+
+CMakeFiles/VO.dir/src/config.cpp.o.provides: CMakeFiles/VO.dir/src/config.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/config.cpp.o.provides.build
+.PHONY : CMakeFiles/VO.dir/src/config.cpp.o.provides
+
+CMakeFiles/VO.dir/src/config.cpp.o.provides.build: CMakeFiles/VO.dir/src/config.cpp.o
+
+
+CMakeFiles/VO.dir/src/camera.cpp.o: CMakeFiles/VO.dir/flags.make
+CMakeFiles/VO.dir/src/camera.cpp.o: ../src/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VO.dir/src/camera.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VO.dir/src/camera.cpp.o -c /home/icey/Desktop/project/VO/src/camera.cpp
+
+CMakeFiles/VO.dir/src/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VO.dir/src/camera.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/icey/Desktop/project/VO/src/camera.cpp > CMakeFiles/VO.dir/src/camera.cpp.i
+
+CMakeFiles/VO.dir/src/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VO.dir/src/camera.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/icey/Desktop/project/VO/src/camera.cpp -o CMakeFiles/VO.dir/src/camera.cpp.s
+
+CMakeFiles/VO.dir/src/camera.cpp.o.requires:
+
+.PHONY : CMakeFiles/VO.dir/src/camera.cpp.o.requires
+
+CMakeFiles/VO.dir/src/camera.cpp.o.provides: CMakeFiles/VO.dir/src/camera.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/camera.cpp.o.provides.build
+.PHONY : CMakeFiles/VO.dir/src/camera.cpp.o.provides
+
+CMakeFiles/VO.dir/src/camera.cpp.o.provides.build: CMakeFiles/VO.dir/src/camera.cpp.o
+
+
 # Object files for target VO
 VO_OBJECTS = \
-"CMakeFiles/VO.dir/src/data_loader.cpp.o"
+"CMakeFiles/VO.dir/src/data_loader.cpp.o" \
+"CMakeFiles/VO.dir/src/config.cpp.o" \
+"CMakeFiles/VO.dir/src/camera.cpp.o"
 
 # External object files for target VO
 VO_EXTERNAL_OBJECTS =
 
 ../lib/libVO.a: CMakeFiles/VO.dir/src/data_loader.cpp.o
+../lib/libVO.a: CMakeFiles/VO.dir/src/config.cpp.o
+../lib/libVO.a: CMakeFiles/VO.dir/src/camera.cpp.o
 ../lib/libVO.a: CMakeFiles/VO.dir/build.make
 ../lib/libVO.a: CMakeFiles/VO.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../lib/libVO.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library ../lib/libVO.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/VO.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VO.dir/link.txt --verbose=$(VERBOSE)
 
@@ -101,6 +153,8 @@ CMakeFiles/VO.dir/build: ../lib/libVO.a
 .PHONY : CMakeFiles/VO.dir/build
 
 CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/data_loader.cpp.o.requires
+CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/config.cpp.o.requires
+CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/camera.cpp.o.requires
 
 .PHONY : CMakeFiles/VO.dir/requires
 

@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/icey/Desktop/project/VO/src/camera.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/camera.cpp.o"
+  "/home/icey/Desktop/project/VO/src/config.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/config.cpp.o"
   "/home/icey/Desktop/project/VO/src/data_loader.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/data_loader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

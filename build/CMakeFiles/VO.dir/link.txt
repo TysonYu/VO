@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libVO.a  CMakeFiles/VO.dir/src/data_loader.cpp.o
+/usr/bin/ar qc ../lib/libVO.a  CMakeFiles/VO.dir/src/data_loader.cpp.o CMakeFiles/VO.dir/src/config.cpp.o CMakeFiles/VO.dir/src/camera.cpp.o
 /usr/bin/ranlib ../lib/libVO.a

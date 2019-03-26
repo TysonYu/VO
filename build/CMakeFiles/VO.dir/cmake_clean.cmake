@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/VO.dir/src/data_loader.cpp.o"
+  "CMakeFiles/VO.dir/src/config.cpp.o"
+  "CMakeFiles/VO.dir/src/camera.cpp.o"
   "../lib/libVO.pdb"
   "../lib/libVO.a"
 )

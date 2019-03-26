@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/camera.h
+common_include.h
+../include/common_include.h
+
 ../include/common_include.h
 Eigen/Core
 -
@@ -40,9 +44,23 @@ fstream
 sstream
 -
 
+../include/config.h
+common_include.h
+../include/common_include.h
+
 ../include/data_loader.h
 common_include.h
 -
+
+/home/icey/Desktop/project/VO/src/camera.cpp
+camera.h
+/home/icey/Desktop/project/VO/src/camera.h
+config.h
+-
+
+/home/icey/Desktop/project/VO/src/config.cpp
+config.h
+/home/icey/Desktop/project/VO/src/config.h
 
 /home/icey/Desktop/project/VO/src/data_loader.cpp
 data_loader.h
