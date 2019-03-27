@@ -44,6 +44,24 @@ int main(int argc, char **argv)
         if ( fin.good() == false )
             break;
     }
+    //--------- input point cloud -----------------------------------------------
+    pcl::PointCloud<pcl::PointXYZI>::Ptr original_cloud (new pcl::PointCloud<pcl::PointXYZI>);
+    if (pcl::io::loadPCDFile<pcl::PointXYZI> (dataset_dir+"/V1_pointcloud.pcd", *original_cloud) == -1) //* load the file
+    {
+        PCL_ERROR ("Couldn't read file data.pcd \n");
+    }
+    vector<Vector3d> cloud;
+    boost::timer timer;
+    for(int i = 0; i < original_cloud->points.size(); i++)
+    {
+        Vector3d point;
+        point(0) = original_cloud->points[i].x;
+        point(1) = original_cloud->points[i].y;
+        point(2) = original_cloud->points[i].z;
+        cloud.push_back(point);
+    }
+    cout<<"descriptor computation cost time: "<<timer.elapsed() <<endl;
+    cout << "cloud point size = " << cloud.size() << endl;
     //--------- create a camera object -----------------------------------------
     VO::Camera::Ptr camera ( new VO::Camera );
 
@@ -58,6 +76,8 @@ int main(int argc, char **argv)
     camera_coor.setRenderingProperty ( cv::viz::LINE_WIDTH, 1.0 );
     vis.showWidget ( "World", world_coor );
     vis.showWidget ( "Camera", camera_coor );
+
+
 
     cout<<"read total "<<rgb_files.size() <<" entries"<<endl;
     // for ( int i=0; i<rgb_files.size(); i++ )

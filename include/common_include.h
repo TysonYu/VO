@@ -23,6 +23,13 @@ using Sophus::SE3;
 #include <opencv2/opencv.hpp>
 using cv::Mat;
 
+//for PCL
+#include <pcl/PCLPointCloud2.h>
+#include <pcl/io/io.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/visualization/pcl_visualizer.h>
+
 // std 
 #include <vector>
 #include <list>
@@ -34,6 +41,7 @@ using cv::Mat;
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <boost/timer.hpp>
 
 using namespace std;
 #endif  //COMMON_INCLUDE_H

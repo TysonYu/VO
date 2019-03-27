@@ -25,10 +25,10 @@ public:
     // std::vector<cv::KeyPoint>      keypoints_;  // key points in image
     // std::vector<MapPoint*>         map_points_; // associated map points
     bool                           is_key_frame_;  // whether a key-frame
-    
+    pcl::PointCloud<pcl::PointXYZI>::Ptr point_cloud_;
 public: // data members 
     Frame();
-    Frame( long id, double time_stamp=0, SE3 T_c_w=SE3(), Camera::Ptr camera=nullptr, Mat color=Mat(), Mat depth=Mat() );
+    Frame( long id, double time_stamp=0, SE3 T_c_w=SE3(), Camera::Ptr camera=nullptr, Mat color=Mat(), Mat depth=Mat(), pcl::PointCloud<pcl::PointXYZI>::Ptr point_cloud_ = nullptr);
     ~Frame();
     
     static Frame::Ptr createFrame(); 
@@ -43,6 +43,9 @@ public: // data members
     
     // check if a point is in this frame 
     bool isInFrame( const Vector3d& pt_world );
+
+    //get depth map from point cloud
+    
 };
 
 }

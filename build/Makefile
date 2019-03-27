@@ -244,6 +244,60 @@ src/data_loader.cpp.s:
 	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/data_loader.cpp.s
 .PHONY : src/data_loader.cpp.s
 
+src/frame.o: src/frame.cpp.o
+
+.PHONY : src/frame.o
+
+# target to build an object file
+src/frame.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/frame.cpp.o
+.PHONY : src/frame.cpp.o
+
+src/frame.i: src/frame.cpp.i
+
+.PHONY : src/frame.i
+
+# target to preprocess a source file
+src/frame.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/frame.cpp.i
+.PHONY : src/frame.cpp.i
+
+src/frame.s: src/frame.cpp.s
+
+.PHONY : src/frame.s
+
+# target to generate assembly for a file
+src/frame.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/frame.cpp.s
+.PHONY : src/frame.cpp.s
+
+src/g2o_types.o: src/g2o_types.cpp.o
+
+.PHONY : src/g2o_types.o
+
+# target to build an object file
+src/g2o_types.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/g2o_types.cpp.o
+.PHONY : src/g2o_types.cpp.o
+
+src/g2o_types.i: src/g2o_types.cpp.i
+
+.PHONY : src/g2o_types.i
+
+# target to preprocess a source file
+src/g2o_types.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/g2o_types.cpp.i
+.PHONY : src/g2o_types.cpp.i
+
+src/g2o_types.s: src/g2o_types.cpp.s
+
+.PHONY : src/g2o_types.s
+
+# target to generate assembly for a file
+src/g2o_types.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/g2o_types.cpp.s
+.PHONY : src/g2o_types.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -266,6 +320,12 @@ help:
 	@echo "... src/data_loader.o"
 	@echo "... src/data_loader.i"
 	@echo "... src/data_loader.s"
+	@echo "... src/frame.o"
+	@echo "... src/frame.i"
+	@echo "... src/frame.s"
+	@echo "... src/g2o_types.o"
+	@echo "... src/g2o_types.i"
+	@echo "... src/g2o_types.s"
 .PHONY : help
 
 

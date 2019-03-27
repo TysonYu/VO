@@ -29,16 +29,19 @@ add_library(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/src/data_loader.cpp
         ${PROJECT_SOURCE_DIR}/src/config.cpp
         ${PROJECT_SOURCE_DIR}/src/camera.cpp
-	# ${PROJECT_SOURCE_DIR}/src/LoopDetector.cpp
-
+        ${PROJECT_SOURCE_DIR}/src/frame.cpp
+        ${PROJECT_SOURCE_DIR}/src/g2o_types.cpp
+        ${PROJECT_SOURCE_DIR}/src/map.cpp
+        ${PROJECT_SOURCE_DIR}/src/mappoint.cpp
+        ${PROJECT_SOURCE_DIR}/src/visual_odometry.cpp
 )
 
 add_executable(main main.cpp)
 target_link_libraries(main
         ${PROJECT_NAME}
-        # ${PCL_LIBRARIES}
+        ${PCL_LIBRARIES}
         ${OpenCV_LIBS}
         ${Sophus_LIBRARIES}
-        # g2o_core g2o_stuff g2o_types_sba
+        g2o_core g2o_stuff g2o_types_sba
 	# ${DBoW3_LIBS}
 )
