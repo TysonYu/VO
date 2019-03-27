@@ -102,6 +102,7 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
             }
             return false;
         }
+        cout << "number of lost frames = " << num_lost_ << endl;
         break;
     }
     case LOST:

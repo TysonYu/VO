@@ -150,15 +150,14 @@ int main(int argc, char **argv)
         cv::waitKey ( 1 );
         vis.setWidgetPose ( "Camera", M );
         vis.spinOnce ( 1, false );
-        cv::waitKey(1000);
 
-
-        viewer.addPointCloud(vo->showResult(),to_string(i));
-        viewer.setBackgroundColor(0,0,0);
-        viewer.addCoordinateSystem();
-        viewer.spin();
-        viewer.removeCoordinateSystem();
-        viewer.removeAllPointClouds(); 
+        // cv::waitKey(1000);
+        // viewer.addPointCloud(vo->showResult(),to_string(i));
+        // viewer.setBackgroundColor(0,0,0);
+        // viewer.addCoordinateSystem();
+        // viewer.spin();
+        // viewer.removeCoordinateSystem();
+        // viewer.removeAllPointClouds(); 
         cout<<endl;
     }
 
