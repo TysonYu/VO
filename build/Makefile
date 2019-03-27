@@ -298,6 +298,87 @@ src/g2o_types.cpp.s:
 	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/g2o_types.cpp.s
 .PHONY : src/g2o_types.cpp.s
 
+src/map.o: src/map.cpp.o
+
+.PHONY : src/map.o
+
+# target to build an object file
+src/map.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/map.cpp.o
+.PHONY : src/map.cpp.o
+
+src/map.i: src/map.cpp.i
+
+.PHONY : src/map.i
+
+# target to preprocess a source file
+src/map.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/map.cpp.i
+.PHONY : src/map.cpp.i
+
+src/map.s: src/map.cpp.s
+
+.PHONY : src/map.s
+
+# target to generate assembly for a file
+src/map.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/map.cpp.s
+.PHONY : src/map.cpp.s
+
+src/mappoint.o: src/mappoint.cpp.o
+
+.PHONY : src/mappoint.o
+
+# target to build an object file
+src/mappoint.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/mappoint.cpp.o
+.PHONY : src/mappoint.cpp.o
+
+src/mappoint.i: src/mappoint.cpp.i
+
+.PHONY : src/mappoint.i
+
+# target to preprocess a source file
+src/mappoint.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/mappoint.cpp.i
+.PHONY : src/mappoint.cpp.i
+
+src/mappoint.s: src/mappoint.cpp.s
+
+.PHONY : src/mappoint.s
+
+# target to generate assembly for a file
+src/mappoint.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/mappoint.cpp.s
+.PHONY : src/mappoint.cpp.s
+
+src/visual_odometry.o: src/visual_odometry.cpp.o
+
+.PHONY : src/visual_odometry.o
+
+# target to build an object file
+src/visual_odometry.cpp.o:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/visual_odometry.cpp.o
+.PHONY : src/visual_odometry.cpp.o
+
+src/visual_odometry.i: src/visual_odometry.cpp.i
+
+.PHONY : src/visual_odometry.i
+
+# target to preprocess a source file
+src/visual_odometry.cpp.i:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/visual_odometry.cpp.i
+.PHONY : src/visual_odometry.cpp.i
+
+src/visual_odometry.s: src/visual_odometry.cpp.s
+
+.PHONY : src/visual_odometry.s
+
+# target to generate assembly for a file
+src/visual_odometry.cpp.s:
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/visual_odometry.cpp.s
+.PHONY : src/visual_odometry.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,6 +407,15 @@ help:
 	@echo "... src/g2o_types.o"
 	@echo "... src/g2o_types.i"
 	@echo "... src/g2o_types.s"
+	@echo "... src/map.o"
+	@echo "... src/map.i"
+	@echo "... src/map.s"
+	@echo "... src/mappoint.o"
+	@echo "... src/mappoint.i"
+	@echo "... src/mappoint.s"
+	@echo "... src/visual_odometry.o"
+	@echo "... src/visual_odometry.i"
+	@echo "... src/visual_odometry.s"
 .PHONY : help
 
 

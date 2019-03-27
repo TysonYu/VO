@@ -29,6 +29,8 @@ using cv::Mat;
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/common/transforms.h>//allows us to use pcl::transformPointCloud function
+#include <pcl/filters/passthrough.h>//allows us to use pcl::PassThrough
 
 // std 
 #include <vector>

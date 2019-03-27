@@ -4,6 +4,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/VO.dir/src/camera.cpp.o"
   "CMakeFiles/VO.dir/src/frame.cpp.o"
   "CMakeFiles/VO.dir/src/g2o_types.cpp.o"
+  "CMakeFiles/VO.dir/src/map.cpp.o"
+  "CMakeFiles/VO.dir/src/mappoint.cpp.o"
+  "CMakeFiles/VO.dir/src/visual_odometry.cpp.o"
   "../lib/libVO.pdb"
   "../lib/libVO.a"
 )

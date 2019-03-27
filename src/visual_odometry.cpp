@@ -23,11 +23,11 @@
 #include <algorithm>
 #include <boost/timer.hpp>
 
-#include "myslam/config.h"
-#include "myslam/visual_odometry.h"
-#include "myslam/g2o_types.h"
+#include "config.h"
+#include "visual_odometry.h"
+#include "g2o_types.h"
 
-namespace myslam
+namespace VO
 {
 
 VisualOdometry::VisualOdometry() :
@@ -57,6 +57,16 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
     case INITIALIZING:
     {
         state_ = OK;
+        Eigen::Matrix3d R;
+        R << -0.7006053896102862, -0.7135019171235308, 0.00819159996979385,
+            -0.3372443368041462, 0.3209880616290335, -0.8850044754605296,
+            0.6288229841080482, -0.6228014760360493, -0.4655104468266718;
+        Sophus::SO3 SO3_R(R);
+        Eigen::Vector3d t(0.3587205554782288, 1.590534719813165, 0.778566164695517);
+        frame->T_c_w_ = SE3(R,t);
+        frame->getDepthImage();
+        // cout << "break when get the depth map at visual_odometry.cpp" << endl;
+        // break;
         curr_ = ref_ = frame;
         // extract features from first frame and add them into map
         extractKeyPoints();
@@ -72,6 +82,7 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
         computeDescriptors();
         featureMatching();
         poseEstimationPnP();
+        frame->getDepthImage();
         if ( checkEstimatedPose() == true ) // a good estimation
         {
             curr_->T_c_w_ = T_c_w_estimated_;
@@ -361,6 +372,63 @@ double VisualOdometry::getViewAngle ( Frame::Ptr frame, MapPoint::Ptr point )
     Vector3d n = point->pos_ - frame->getCamCenter();
     n.normalize();
     return acos( n.transpose()*point->norm_ );
+}
+
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr VisualOdometry::showResult()
+{
+    Eigen::Matrix4d rt_world2cam = curr_->T_c_w_.matrix();
+    
+    // std::cout << "R = " << R.at<double>(0,0) << std::endl;
+    // std::cout << "T = " << T << std::endl;
+    // cout << rt_world2cam << endl;
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
+    for(int i = 0; i < curr_->point_cloud_->points.size(); i++)
+    {
+        pcl::PointXYZRGB point;
+        point.x = curr_->point_cloud_->points[i].x;
+        point.y = curr_->point_cloud_->points[i].y;
+        point.z = curr_->point_cloud_->points[i].z;
+        point.r = 255;
+        point.g = 255;
+        point.b = 255;
+        cloud->points.push_back(point);
+    }
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr camera_cloud (new pcl::PointCloud<pcl::PointXYZRGB>);//转化到相机坐标系
+    pcl::transformPointCloud (*cloud, *camera_cloud, rt_world2cam);//image，Z上未归一化的像素坐标系
+    //-- //滤掉后面的点
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr camera_cloud_filtered (new pcl::PointCloud<pcl::PointXYZRGB>);
+    pcl::PassThrough<pcl::PointXYZRGB> pass;
+    pass.setInputCloud (camera_cloud);
+    pass.setFilterFieldName ("z");
+    pass.setFilterLimits (0, 50);//delete all the point that z<0 && z>40
+    pass.filter (*camera_cloud_filtered);
+    
+    //--  图像形式点云
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr image_form_cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
+    Eigen::Matrix4f intrisic;//相机内参
+    intrisic << curr_->camera_->fx_, 0, curr_->camera_->cx_, 0,    0, curr_->camera_->fy_, curr_->camera_->cy_, 0,    0, 0, 1, 0,    0, 0, 0, 1;
+    pcl::transformPointCloud (*camera_cloud_filtered, *image_form_cloud, intrisic);//result，Z上未归一化的像素坐标系
+    for(int i = 0; i < image_form_cloud->points.size(); i++)
+    {
+        image_form_cloud->points[i].x = image_form_cloud->points[i].x / image_form_cloud->points[i].z;
+        image_form_cloud->points[i].y = image_form_cloud->points[i].y / image_form_cloud->points[i].z;
+        if(image_form_cloud->points[i].z > curr_->max_depth)
+            curr_->max_depth = image_form_cloud->points[i].z;
+    }
+    //--//把相机图片颜色投影到点云图上
+    // cvCvtColor(test_image_refined, camera_image, CV_BGR2GRAY);
+    cv::Mat camera_image = cv::imread("../data/test_image_refined.png",cv::IMREAD_GRAYSCALE);
+    for(int i=0;i<image_form_cloud->points.size();i++)
+    {
+
+        if(image_form_cloud->points[i].x>=0  && image_form_cloud->points[i].x<curr_->color_.cols && image_form_cloud->points[i].y>=0 && image_form_cloud->points[i].y<curr_->color_.rows)
+        {
+            camera_cloud_filtered->points[i].r = camera_image.at<uchar>(round(image_form_cloud->points[i].y),round(image_form_cloud->points[i].x));
+            camera_cloud_filtered->points[i].g = camera_image.at<uchar>(round(image_form_cloud->points[i].y),round(image_form_cloud->points[i].x));
+            camera_cloud_filtered->points[i].b = camera_image.at<uchar>(round(image_form_cloud->points[i].y),round(image_form_cloud->points[i].x));
+        }
+    }
+    return camera_cloud_filtered;
 }
 
 

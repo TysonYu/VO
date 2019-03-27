@@ -25,7 +25,7 @@
 
 #include <opencv2/features2d/features2d.hpp>
 
-namespace myslam 
+namespace VO 
 {
 class VisualOdometry
 {
@@ -72,7 +72,7 @@ public: // functions
     ~VisualOdometry();
     
     bool addFrame( Frame::Ptr frame );      // add a new frame 
-    
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr showResult();
 protected:  
     // inner operation 
     void extractKeyPoints();

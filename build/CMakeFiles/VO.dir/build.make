@@ -177,13 +177,88 @@ CMakeFiles/VO.dir/src/g2o_types.cpp.o.provides: CMakeFiles/VO.dir/src/g2o_types.
 CMakeFiles/VO.dir/src/g2o_types.cpp.o.provides.build: CMakeFiles/VO.dir/src/g2o_types.cpp.o
 
 
+CMakeFiles/VO.dir/src/map.cpp.o: CMakeFiles/VO.dir/flags.make
+CMakeFiles/VO.dir/src/map.cpp.o: ../src/map.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VO.dir/src/map.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VO.dir/src/map.cpp.o -c /home/icey/Desktop/project/VO/src/map.cpp
+
+CMakeFiles/VO.dir/src/map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VO.dir/src/map.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/icey/Desktop/project/VO/src/map.cpp > CMakeFiles/VO.dir/src/map.cpp.i
+
+CMakeFiles/VO.dir/src/map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VO.dir/src/map.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/icey/Desktop/project/VO/src/map.cpp -o CMakeFiles/VO.dir/src/map.cpp.s
+
+CMakeFiles/VO.dir/src/map.cpp.o.requires:
+
+.PHONY : CMakeFiles/VO.dir/src/map.cpp.o.requires
+
+CMakeFiles/VO.dir/src/map.cpp.o.provides: CMakeFiles/VO.dir/src/map.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/map.cpp.o.provides.build
+.PHONY : CMakeFiles/VO.dir/src/map.cpp.o.provides
+
+CMakeFiles/VO.dir/src/map.cpp.o.provides.build: CMakeFiles/VO.dir/src/map.cpp.o
+
+
+CMakeFiles/VO.dir/src/mappoint.cpp.o: CMakeFiles/VO.dir/flags.make
+CMakeFiles/VO.dir/src/mappoint.cpp.o: ../src/mappoint.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VO.dir/src/mappoint.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VO.dir/src/mappoint.cpp.o -c /home/icey/Desktop/project/VO/src/mappoint.cpp
+
+CMakeFiles/VO.dir/src/mappoint.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VO.dir/src/mappoint.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/icey/Desktop/project/VO/src/mappoint.cpp > CMakeFiles/VO.dir/src/mappoint.cpp.i
+
+CMakeFiles/VO.dir/src/mappoint.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VO.dir/src/mappoint.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/icey/Desktop/project/VO/src/mappoint.cpp -o CMakeFiles/VO.dir/src/mappoint.cpp.s
+
+CMakeFiles/VO.dir/src/mappoint.cpp.o.requires:
+
+.PHONY : CMakeFiles/VO.dir/src/mappoint.cpp.o.requires
+
+CMakeFiles/VO.dir/src/mappoint.cpp.o.provides: CMakeFiles/VO.dir/src/mappoint.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/mappoint.cpp.o.provides.build
+.PHONY : CMakeFiles/VO.dir/src/mappoint.cpp.o.provides
+
+CMakeFiles/VO.dir/src/mappoint.cpp.o.provides.build: CMakeFiles/VO.dir/src/mappoint.cpp.o
+
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.o: CMakeFiles/VO.dir/flags.make
+CMakeFiles/VO.dir/src/visual_odometry.cpp.o: ../src/visual_odometry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VO.dir/src/visual_odometry.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VO.dir/src/visual_odometry.cpp.o -c /home/icey/Desktop/project/VO/src/visual_odometry.cpp
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VO.dir/src/visual_odometry.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/icey/Desktop/project/VO/src/visual_odometry.cpp > CMakeFiles/VO.dir/src/visual_odometry.cpp.i
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VO.dir/src/visual_odometry.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/icey/Desktop/project/VO/src/visual_odometry.cpp -o CMakeFiles/VO.dir/src/visual_odometry.cpp.s
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.o.requires:
+
+.PHONY : CMakeFiles/VO.dir/src/visual_odometry.cpp.o.requires
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.o.provides: CMakeFiles/VO.dir/src/visual_odometry.cpp.o.requires
+	$(MAKE) -f CMakeFiles/VO.dir/build.make CMakeFiles/VO.dir/src/visual_odometry.cpp.o.provides.build
+.PHONY : CMakeFiles/VO.dir/src/visual_odometry.cpp.o.provides
+
+CMakeFiles/VO.dir/src/visual_odometry.cpp.o.provides.build: CMakeFiles/VO.dir/src/visual_odometry.cpp.o
+
+
 # Object files for target VO
 VO_OBJECTS = \
 "CMakeFiles/VO.dir/src/data_loader.cpp.o" \
 "CMakeFiles/VO.dir/src/config.cpp.o" \
 "CMakeFiles/VO.dir/src/camera.cpp.o" \
 "CMakeFiles/VO.dir/src/frame.cpp.o" \
-"CMakeFiles/VO.dir/src/g2o_types.cpp.o"
+"CMakeFiles/VO.dir/src/g2o_types.cpp.o" \
+"CMakeFiles/VO.dir/src/map.cpp.o" \
+"CMakeFiles/VO.dir/src/mappoint.cpp.o" \
+"CMakeFiles/VO.dir/src/visual_odometry.cpp.o"
 
 # External object files for target VO
 VO_EXTERNAL_OBJECTS =
@@ -193,9 +268,12 @@ VO_EXTERNAL_OBJECTS =
 ../lib/libVO.a: CMakeFiles/VO.dir/src/camera.cpp.o
 ../lib/libVO.a: CMakeFiles/VO.dir/src/frame.cpp.o
 ../lib/libVO.a: CMakeFiles/VO.dir/src/g2o_types.cpp.o
+../lib/libVO.a: CMakeFiles/VO.dir/src/map.cpp.o
+../lib/libVO.a: CMakeFiles/VO.dir/src/mappoint.cpp.o
+../lib/libVO.a: CMakeFiles/VO.dir/src/visual_odometry.cpp.o
 ../lib/libVO.a: CMakeFiles/VO.dir/build.make
 ../lib/libVO.a: CMakeFiles/VO.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library ../lib/libVO.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/icey/Desktop/project/VO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library ../lib/libVO.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/VO.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VO.dir/link.txt --verbose=$(VERBOSE)
 
@@ -209,6 +287,9 @@ CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/config.cpp.o.requires
 CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/camera.cpp.o.requires
 CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/frame.cpp.o.requires
 CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/g2o_types.cpp.o.requires
+CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/map.cpp.o.requires
+CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/mappoint.cpp.o.requires
+CMakeFiles/VO.dir/requires: CMakeFiles/VO.dir/src/visual_odometry.cpp.o.requires
 
 .PHONY : CMakeFiles/VO.dir/requires
 

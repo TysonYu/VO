@@ -9,6 +9,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/icey/Desktop/project/VO/src/data_loader.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/data_loader.cpp.o"
   "/home/icey/Desktop/project/VO/src/frame.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/frame.cpp.o"
   "/home/icey/Desktop/project/VO/src/g2o_types.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/g2o_types.cpp.o"
+  "/home/icey/Desktop/project/VO/src/map.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/map.cpp.o"
+  "/home/icey/Desktop/project/VO/src/mappoint.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/mappoint.cpp.o"
+  "/home/icey/Desktop/project/VO/src/visual_odometry.cpp" "/home/icey/Desktop/project/VO/build/CMakeFiles/VO.dir/src/visual_odometry.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
