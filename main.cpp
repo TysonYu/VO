@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 
     //--------- start VO ------------------------------------------------------
     cout<<"read total "<<rgb_files.size() <<" entries"<<endl;
-    for ( int i=230; i<rgb_files.size(); i++ )
+    for ( int i=120; i<rgb_files.size(); i++ )
     {
         cout<<"****** loop "<<i<<" ******"<<endl;
         Mat color_raw = cv::imread ( rgb_files[i] );
@@ -139,10 +139,16 @@ int main(int argc, char **argv)
         );
 
         Mat img_show = color.clone();
+        pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud (new pcl::PointCloud<pcl::PointXYZ>);
         for ( auto& pt:vo->map_->map_points_ )
         {
+            pcl::PointXYZ point;
             VO::MapPoint::Ptr p = pt.second;
             Vector2d pixel = pFrame->camera_->world2pixel ( p->pos_, pFrame->T_c_w_ );
+            point.x = p->pos_(0);
+            point.y = p->pos_(1);
+            point.z = p->pos_(2);
+            temp_cloud->points.push_back(point);
             cv::circle ( img_show, cv::Point2f ( pixel ( 0,0 ),pixel ( 1,0 ) ), 5, cv::Scalar ( 0,255,0 ), 2 );
         }
 
@@ -153,6 +159,7 @@ int main(int argc, char **argv)
 
         // cv::waitKey(1000);
         // viewer.addPointCloud(vo->showResult(),to_string(i));
+        // // viewer.addPointCloud(temp_cloud,to_string(i));
         // viewer.setBackgroundColor(0,0,0);
         // viewer.addCoordinateSystem();
         // viewer.spin();
