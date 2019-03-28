@@ -58,15 +58,26 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
     {
         state_ = OK;
         Eigen::Matrix3d R;
-        R << -0.7006053896102862, -0.7135019171235308, 0.00819159996979385,
-            -0.3372443368041462, 0.3209880616290335, -0.8850044754605296,
-            0.6288229841080482, -0.6228014760360493, -0.4655104468266718;
+        //frame 120 
+        R << -0.3222673184062916, -0.9460652815132602, 0.03323038673343787,
+             -0.3890522682177243, 0.1003616669290551, -0.9157324218383149,
+             0.8630075944520199, -0.308038989295929, -0.4004121289267856;
         Sophus::SO3 SO3_R(R);
-        Eigen::Vector3d t(0.3587205554782288, 1.590534719813165, 0.778566164695517);
+        Eigen::Vector3d t(2.346026439949247, 1.422413274927863, 0.5653941661421517);
+        //frame 230
+        // R << -0.7006053896102862, -0.7135019171235308, 0.00819159996979385,
+        //     -0.3372443368041462, 0.3209880616290335, -0.8850044754605296,
+        //     0.6288229841080482, -0.6228014760360493, -0.4655104468266718;
+        // Sophus::SO3 SO3_R(R);
+        // Eigen::Vector3d t(0.3587205554782288, 1.590534719813165, 0.778566164695517);
+        //frame 360
+        // R << -0.9899882799269517, -0.1025841907596594, 0.09695199540732166,
+        //      -0.1303546958457888, 0.4010258909123485, -0.9067446653214506,
+        //      0.05413740738368813, -0.9103047394274861, -0.4103832629355507;
+        // Sophus::SO3 SO3_R(R);
+        // Eigen::Vector3d t(-2.217713340869877, 1.57868234632133, 0.467917162329825);
         frame->T_c_w_ = SE3(R,t);
         frame->getDepthImage();
-        // cout << "break when get the depth map at visual_odometry.cpp" << endl;
-        // break;
         curr_ = ref_ = frame;
         // extract features from first frame and add them into map
         extractKeyPoints();
@@ -91,6 +102,7 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
             if ( checkKeyFrame() == true ) // is a key-frame
             {
                 addKeyFrame();
+                cout << "this frame is a key frame" << endl;
             }
         }
         else // bad estimation due to various reasons
@@ -102,6 +114,7 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
             }
             return false;
         }
+        cout << "current fram pose :" << endl << curr_->T_c_w_.matrix() << endl;
         cout << "number of lost frames = " << num_lost_ << endl;
         break;
     }
@@ -118,7 +131,21 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
 void VisualOdometry::extractKeyPoints()
 {
     boost::timer timer;
-    orb_->detect ( curr_->color_, keypoints_curr_ );
+    vector<cv::KeyPoint> keypoints_temp;
+    Mat mask = Mat::zeros(curr_->color_.size(), CV_8U);  // type of mask is CV_8U
+    Mat roi(mask, cv::Rect(0,0,curr_->color_.cols,curr_->color_.rows/20));//Rect四个形参分别是：x坐标，y坐标，长，高；注意(x,y)指的是矩形的左上角点
+    roi = cv::Scalar(255);
+    orb_->detect ( curr_->color_, keypoints_curr_, mask);
+    for(int i = 1; i < 20; i++)
+    {
+        Mat mask_temp = Mat::zeros(curr_->color_.size(), CV_8U);  // type of mask is CV_8U
+        Mat roi_temp(mask_temp, cv::Rect(0, i*curr_->color_.rows/20, curr_->color_.cols, curr_->color_.rows/20));
+        roi_temp = cv::Scalar(255);
+        orb_->detect ( curr_->color_, keypoints_temp, mask_temp);
+        for(int j = 0; j < keypoints_temp.size(); j++)
+            keypoints_curr_.push_back(keypoints_temp.at(j));
+    }
+    // orb_->detect ( curr_->color_, keypoints_curr_ );
     cout<<"extract keypoints cost time: "<<timer.elapsed() <<endl;
 }
 
@@ -126,6 +153,7 @@ void VisualOdometry::computeDescriptors()
 {
     boost::timer timer;
     orb_->compute ( curr_->color_, keypoints_curr_, descriptors_curr_ );
+    cout << "descriptor number = " << descriptors_curr_.rows << endl;
     cout<<"descriptor computation cost time: "<<timer.elapsed() <<endl;
 }
 
@@ -148,8 +176,9 @@ void VisualOdometry::featureMatching()
             desp_map.push_back( p->descriptor_ );
         }
     }
-    
+    cout << "candidate descriptor number = " << desp_map.rows << endl;
     matcher_flann_.match ( desp_map, descriptors_curr_, matches );
+    // cout << "matches size = " << matches.size() << endl;
     // select the best matches
     float min_dis = std::min_element (
                         matches.begin(), matches.end(),
@@ -157,7 +186,6 @@ void VisualOdometry::featureMatching()
     {
         return m1.distance < m2.distance;
     } )->distance;
-
     match_3dpts_.clear();
     match_2dkp_index_.clear();
     for ( cv::DMatch& m : matches )
@@ -255,7 +283,7 @@ bool VisualOdometry::checkEstimatedPose()
     // if the motion is too large, it is probably wrong
     SE3 T_r_c = ref_->T_c_w_ * T_c_w_estimated_.inverse();
     Sophus::Vector6d d = T_r_c.log();
-    if ( d.norm() > 5.0 )
+    if ( d.norm() > 1.0 )
     {
         cout<<"reject because motion is too large: "<<d.norm() <<endl;
         return false;
@@ -331,12 +359,12 @@ void VisualOdometry::optimizeMap()
     // remove the hardly seen and no visible points 
     for ( auto iter = map_->map_points_.begin(); iter != map_->map_points_.end(); )
     {
-        if ( !curr_->isInFrame(iter->second->pos_) )
-        {
-            iter = map_->map_points_.erase(iter);
-            continue;
-        }
-        float match_ratio = float(iter->second->matched_times_)/iter->second->visible_times_;
+        // if ( !curr_->isInFrame(iter->second->pos_) )//删掉不位于当前帧的点
+        // {
+        //     iter = map_->map_points_.erase(iter);
+        //     continue;
+        // }
+        float match_ratio = float(iter->second->matched_times_)/iter->second->visible_times_;//删除被匹配比例太低的点
         if ( match_ratio < map_point_erase_ratio_ )
         {
             iter = map_->map_points_.erase(iter);
@@ -356,9 +384,9 @@ void VisualOdometry::optimizeMap()
         iter++;
     }
     
-    if ( match_2dkp_index_.size()<100 )
+    if ( match_2dkp_index_.size()<200 )
         addMapPoints();
-    if ( map_->map_points_.size() > 1000 )  
+    if ( map_->map_points_.size() > 1500 )  
     {
         // TODO map is too large, remove some one 
         map_point_erase_ratio_ += 0.05;
