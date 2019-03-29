@@ -158,13 +158,13 @@ int main(int argc, char **argv)
         vis.spinOnce ( 1, false );
 
         // cv::waitKey(1000);
-        // viewer.addPointCloud(vo->showResult(),to_string(i));
-        // // viewer.addPointCloud(temp_cloud,to_string(i));
-        // viewer.setBackgroundColor(0,0,0);
-        // viewer.addCoordinateSystem();
-        // viewer.spin();
-        // viewer.removeCoordinateSystem();
-        // viewer.removeAllPointClouds(); 
+        viewer.addPointCloud(vo->showResult(),to_string(i));
+        // viewer.addPointCloud(temp_cloud,to_string(i));
+        viewer.setBackgroundColor(0,0,0);
+        viewer.addCoordinateSystem();
+        viewer.spin();
+        viewer.removeCoordinateSystem();
+        viewer.removeAllPointClouds(); 
         cout<<endl;
     }
 

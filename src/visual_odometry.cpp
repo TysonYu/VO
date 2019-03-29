@@ -372,7 +372,7 @@ void VisualOdometry::optimizeMap()
         }
         
         double angle = getViewAngle( curr_, iter->second );
-        if ( angle > M_PI/6. )
+        if ( angle > M_PI/4. )
         {
             iter = map_->map_points_.erase(iter);
             continue;
